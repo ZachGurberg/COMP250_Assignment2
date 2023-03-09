@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ac2beed7-0259-46cc-9be3-e00155dffb57" name="Changes" comment="1">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assignment2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assignment2/ActionQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assignment2/Caterpillar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assignment2/Direction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assignment2/GameState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assignment2/MyDoublyLinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assignment2/MyLinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assignment2/MyList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assignment2/MyQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assignment2/MyStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assignment2/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assignment2/Region.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assignment2/TargetQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assignment2/World.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/CaterpillarDrawer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/CaterpillarGame.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2MZl6D6blx4a5vuAyPQF7sHA6M5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/game" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ac2beed7-0259-46cc-9be3-e00155dffb57" name="Changes" comment="" />
+      <created>1677982811271</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1677982811271</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Assignment2$Main.ic" NAME="Main Coverage Results" MODIFIED="1678247003260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
