@@ -1,12 +1,13 @@
 package assignment2;
 
 public class Caterpillar extends MyDoublyLinkedList<Position>{
-    int size;
-    Position headPosition;
+    private int size;
+    private Position headPosition;
 
     public Caterpillar(){
         size =1;
         headPosition = new Position(7,7);
+        super.add(headPosition);
     }
     public Position getHead(){
         return headPosition;
@@ -15,7 +16,7 @@ public class Caterpillar extends MyDoublyLinkedList<Position>{
     public void eat(Position food){
         if (isAdjacent(food)){
             super.addFirst(food);
-            headPosition = new Position(food); //TODO should we check self collision?
+            headPosition = new Position(food);
             size++;
         } else throw new IllegalArgumentException();
     }
@@ -23,7 +24,8 @@ public class Caterpillar extends MyDoublyLinkedList<Position>{
     public void move(Position p){
         if (isAdjacent(p)){
             super.addFirst(p);
-            //TODO should we update the head position too? Should we check self collision?
+            //TODO should we update the head position too? Should we check self collision? Assume yes for now
+            headPosition = new Position(p);
             super.removeLast();
         } else throw new IllegalArgumentException();
     }

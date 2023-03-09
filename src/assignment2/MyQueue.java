@@ -18,9 +18,9 @@ public class MyQueue<E> {
     public void clear(){
         dll.clear();
     }
-    public boolean equals(Object o){ //TODO
-        if (!(o instanceof MyQueue<?>))
-            return false;
+    public boolean equals(Object o){
+        if (!(o instanceof MyQueue<?>)){
+            return false;}
         else{
             MyQueue<E> comp = (MyQueue<E>)o;
             return (this.dll.equals(comp.dll));
