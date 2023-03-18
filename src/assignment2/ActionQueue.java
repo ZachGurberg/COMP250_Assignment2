@@ -50,7 +50,7 @@ public class ActionQueue extends MyQueue<Direction>{
         addToStack(conversion);
     }
 
-    public String tmp(String input) {
+    private String tmp(String input) {
 
         String builder = "";
 

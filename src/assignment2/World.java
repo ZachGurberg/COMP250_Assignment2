@@ -76,28 +76,5 @@ public class World {
         return(state == GameState.MOVE || state == GameState.EAT);
     }
 
-    public String nextDirection(Position p){
-        Position current = caterpillar.getHead();
-        String nextDirection = "";
-
-        int dx = p.getX() - current.getX();
-        int dy = p.getY() - current.getY();
-
-        if (dx>0){
-            nextDirection+=dx+"[E]";
-        } else if (dx<0){
-            nextDirection+= Math.abs(dx)+"[W]";
-        }
-
-        if (dy<0){
-            nextDirection+=dy+"[N]";
-        } else if (dy>0){
-            nextDirection+=Math.abs(dy)+"[S]";
-        }
-
-        return nextDirection;
-
-    }
-
 
 }
