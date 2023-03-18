@@ -2,93 +2,114 @@ package assignment2;
 
 public class ActionQueue extends MyQueue<Direction>{
 
-    private MyStack<Integer> multiplierStack;
-    private MyStack<String> directionStack;
     public ActionQueue(){
         super();
-        multiplierStack = new MyStack<Integer>();
-        directionStack = new MyStack<String>();
     }
     public void clear(){
         super.clear(); //clears dll from super (MyQueue)
-        multiplierStack.clear();
-        directionStack.clear();
     }
 
     public void loadFromEncodedString(String input){
-        String numBuilder = "";
-        String directionBuilder = "";
-        String finalBuilder = "";
-        String current = "";
-        boolean done;
 
-        if(input.isEmpty())
-            return;
-        if (input==null)
-            return;
-        for (int i = 0; i<input.length(); i++){
+        //primitive check for syntax
+        int openCount=0;
+        int closeCount=0;
+        int intCount = 0;
+
+        for (int i=0; i<input.length(); i++) {
             char c = input.charAt(i);
-
-            if (multiplierStack.isEmpty() && !finalBuilder.isEmpty()) {
-                addToStack(finalBuilder);
-                finalBuilder = "";
+            if (isDirection(c))
+                continue;
+            else if (isInt(c)) {
+                for (int j = i+1; j < input.length(); j++) {
+                    if (!isInt(input.charAt(j)))
+                        break;
+                    else
+                        i = j;
+                }
+                intCount++;
             }
 
-            if (isInt(c)) {
-                if (i+1<input.length()) {                        //for making sure that what follows and int is either int or a '['
-                    if (!isInt(input.charAt(i+1)) && input.charAt(i+1) != '[')
+            else if (c == '[') {
+                openCount++;
+                if (i+1<input.length()){
+                    if (!isInt(input.charAt(i+1))&&!isDirection(input.charAt(i+1)))
                         throw new IllegalArgumentException();
                 }
-                else throw new IllegalArgumentException(); // if the int is the last character throw
-                //otherwise its valid
-                numBuilder+=Character.toString(c);
+                else throw new IllegalArgumentException();
             }
-            else if (c == '[')
-                if (numBuilder.isEmpty()) //should have a multiplier
-                    throw new IllegalArgumentException();
-                else{
-                    multiplierStack.push(Integer.parseInt(numBuilder));
-                    numBuilder = "";
-
-                }
-            else if (c==']') {
-                if (!directionBuilder.isEmpty()) {
-                    directionStack.push(directionBuilder);
-                    directionBuilder = "";
-                }
-                if (multiplierStack.isEmpty())
-                    throw new IllegalArgumentException();
-
-                if (directionStack.isEmpty()){
-                    current = finalBuilder;
-                    int count = multiplierStack.pop();
-                    for (int j = 0; j< count-1; j++)
-                        finalBuilder += current;
-                }
-                else{
-                    current = directionStack.pop();
-                    int count = multiplierStack.pop();
-                    for (int j =0; j< count; j++)
-                        finalBuilder+=current;
-                }
-            }
-
-            else if (isDirection(c)){
-                if (multiplierStack.isEmpty())
-                    throw new IllegalArgumentException();
-                if (i+1<input.length()) {
-                    if (!isDirection(input.charAt(i+1)) && input.charAt(i+1) != ']') //only element that follows should be a direction or ']'
-                        throw new IllegalArgumentException();
-                }
-                else throw new IllegalArgumentException(); // if direction is last character throw
-                directionBuilder+=Character.toString(c);
-                }
-            else throw new IllegalArgumentException();
+            else if (c == ']')
+                closeCount++;
+            else
+                throw new IllegalArgumentException();
         }
-        if (!multiplierStack.isEmpty()) //missing closing parenthesis
+        if (openCount!=closeCount || openCount!=intCount)
             throw new IllegalArgumentException();
 
-        addToStack(finalBuilder);
+        String conversion = tmp(input);
+        addToStack(conversion);
+    }
+
+    public String tmp(String input) {
+
+        String builder = "";
+
+        for (int i =0; i<input.length(); i++){
+            char c = input.charAt(i);
+
+            if (isDirection(c)){
+                builder+=c;
+            }
+
+            else if (isInt(c)){
+                String numBuilder = "";
+                numBuilder+=c;
+
+                int multiplier=-1;
+                String subString = "";
+                int p = i+1;
+                while (p<input.length()){
+                    if (isInt(input.charAt(p))){
+                        numBuilder+=input.charAt(p);
+                        p++;
+                    }
+                    else if (input.charAt(p)=='['){
+                        multiplier = Integer.parseInt(numBuilder);
+                        break;}
+                    else
+                        throw new IllegalArgumentException();
+
+                }
+                if (multiplier==-1) //Missing opening parenthesis
+                    throw new IllegalArgumentException();
+                if (p+1>=input.length())
+                    throw new IllegalArgumentException(); //Missing argument after opening parenthesis
+
+                int counter = 0;
+                for (int k = p+1; k<input.length(); k++){//Starting just after the '['
+                    char d = input.charAt(k);
+                    if (d == '[') {
+                        counter++;
+                    }
+                    if (d == ']'){
+                        if (counter == 0){
+                            String toMultiply = tmp(subString);
+                            for (int j=0; j<multiplier;j++){
+                                builder+=toMultiply;
+                            }
+                            break;
+                        } else{
+                            counter --;
+                        }
+                    }
+                    subString+=d;
+                }
+                if (counter!=0)
+                    throw new IllegalArgumentException();
+                i+=(subString.length()+2);
+            }
+        }
+        return builder;
     }
 
     private void addToStack(String s){

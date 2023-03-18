@@ -13,7 +13,7 @@ public class TargetQueue extends MyQueue<Position>{
     public void addTargets(String input){
 
         if (input == null)
-            return;
+            throw new NullPointerException();
         if (input.isEmpty())
             return;
 
@@ -60,7 +60,7 @@ public class TargetQueue extends MyQueue<Position>{
                         throw new IllegalArgumentException();
                     break;
                 case '.':
-                    if((num.length()!=0 && stack.getSize()!=0)||i==0)
+                    if((num.length()!=0 && stack.getSize()!=0))
                         throw new IllegalArgumentException();
                     else if (i<input.length()-1){
                         if (input.charAt(i+1) == c)
@@ -79,8 +79,9 @@ public class TargetQueue extends MyQueue<Position>{
             }
             i++;
         }
-        if (input.charAt(i-1)!='.')
+        if (!stack.isEmpty()) //checking missing closing parenthesis
             throw new IllegalArgumentException();
+
         return;
     }
 

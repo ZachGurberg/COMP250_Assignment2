@@ -49,16 +49,23 @@ public class Main {
 
 //        String actions = "2[N]3[W]";
 //        String actions = "3[NE]";
-        String actions = "3[2[N]2[E]]";
+//        String actions = "3[2[N]2[E]]";
 //        String actions = "2[3[2[N]3SE]1[E]]";
 //        String actions = "2[3[2N]]";
 //        String actions = "2[3[2[SW]2[NE]]]";
 //        String actions = "12[N]";
-//        String actions = "12[2[NE]10[2[W]3[SW]]]"; //TODO Multiplier of nested sequence of two parts where the second part is also a nested sequence. Will require moving finalBuilder to a stack
+//        String actions = "12[2[NE]10[2[W]3[SW]]]";
 //        String actions = "2[N]2[1[N]2[S]]";
-//        String actions = "2[1[N]2[2[N]2[S]]]";
+        String actions = "2[1[N]2[2[N]2[S]]]";
+
+
+//        String actions = "NE";
+//        String actions = "5[N]";
+//        String actions = "NE5[N]";
+//        String actions = "2[NE5[N]]";
         ActionQueue action = new ActionQueue();
         action.loadFromEncodedString(actions);
+
 
     }
 }

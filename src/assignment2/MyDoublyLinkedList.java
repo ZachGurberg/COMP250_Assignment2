@@ -44,10 +44,13 @@ public class MyDoublyLinkedList<E> extends MyLinkedList<E>{
 	}
 
 	public void clear(){ //should test
-		Iterator<E> iter = this.iterator();
+		Iterator<E> tmp = this.iterator();
+		DLLIterator iter = (DLLIterator)tmp;
 		while (iter.hasNext()){
+			iter.curr.element=null;
+			iter.curr.next=null;
+			iter.curr.prev = null;
 			iter.next();
-			iter.remove();
 		}
 		head=null;
 		tail=null;

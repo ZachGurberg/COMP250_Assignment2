@@ -16,6 +16,7 @@ public class World {
         caterpillar = new Caterpillar();
         currentFood = targets.dequeue();
         state = GameState.MOVE;
+        this.currentDirection = Direction.NORTH; //Default
     }
 
     public void step(){
